@@ -1,0 +1,48 @@
+<div class="task-list-container">
+    <h2>Task List</h2>
+    <div class="task-item">
+    <table mat-table [dataSource]="tasks">
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let task">{{ task.title }}</td>
+      </ng-container>
+  
+      <!-- Due Date Column -->
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef>Due Date</th>
+        <td mat-cell *matCellDef="let task">{{ task.dueDate | date }}</td>
+      </ng-container>
+  
+      <!-- Completed Column -->
+      <ng-container matColumnDef="completed">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let task">
+          <span [class.completed]="task.completed">{{ task.completed ? 'Completed' : 'Pending' }}</span>
+        </td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let task">
+          <button mat-icon-button (click)="markCompleted(task)" matTooltip="Toggle Complete">
+            <mat-icon>{{ task.completed ? 'check_circle' : 'radio_button_unchecked' }}</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteTask(task.id)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="viewDetails(task.id)" matTooltip="Details">
+            <mat-icon>info</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['title', 'dueDate', 'completed', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['title', 'dueDate', 'completed', 'actions'];"></tr>
+    </table>
+  
+    <button  (click)="navigateToAddTask()">Add Task</button>
+</div>
+  </div>
+  

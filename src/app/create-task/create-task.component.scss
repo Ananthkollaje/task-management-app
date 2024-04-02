@@ -1,0 +1,39 @@
+.task-form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .task-form-container h2 {
+    margin-bottom: 15px;
+  }
+  
+  .task-form-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .task-form-container input[type="text"],
+  .task-form-container textarea,
+  .task-form-container input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  
+  .task-form-container button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .task-form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
